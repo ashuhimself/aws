@@ -3,7 +3,7 @@ name: Update S3 on DAGs push
 on:
   push:
     paths:
-      - 'dags_test/*'  # Trigger on push to the 'dags' folder
+      - 'dags/*'  # Trigger on push to the 'dags' folder
 
 jobs:
   update_s3:
