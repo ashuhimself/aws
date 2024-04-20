@@ -1,0 +1,25 @@
+name: Update S3 on DAGs push
+
+on:
+  push:
+    paths:
+      - 'dags_test/**'  # Trigger on push to the 'dags' folder
+
+jobs:
+  update_s3:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.ACCESSKEY }}
+          aws-secret-access-key: ${{ secrets.SECRETACCESSKEY }}
+          aws-region: us-east-1  # Specify your AWS region
+
+      - name: Sync files with S3
+        run: |
+          aws s3 sync dags s3://test-git-ashutosh
