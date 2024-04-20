@@ -3,7 +3,7 @@ name: Update S3 on DAGs push
 on:
   push:
     paths:
-      - 'dags_test/**'  # Trigger on push to the 'dags' folder
+      - 'dags_test/*'  # Trigger on push to the 'dags' folder
 
 jobs:
   update_s3:
@@ -22,4 +22,4 @@ jobs:
 
       - name: Sync files with S3
         run: |
-          aws s3 sync dags s3://test-git-ashutosh
+          aws s3 sync dags s3://test-git-ashutosh/
