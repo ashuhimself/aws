@@ -16,7 +16,7 @@ def task4_function():
     print("Running Task 4")
 
 def task5_function():
-    print("Running Task 5")
+    raise ("Error")
 
 default_args = {
     'owner': 'airflow',
